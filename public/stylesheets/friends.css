@@ -1,0 +1,35 @@
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    display: grid;
+    grid-template-columns: 200px 60% auto;
+    grid-template-areas: 'h h h' 'i m e' 'f f f';
+  }
+  
+  body > header {
+    grid-area: h;
+    height: 50px;
+    display: flex;
+    color: white;
+    background-color: blueviolet;
+    align-items: center;
+  }
+body > main {
+    grid-area: m;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+body > main >section>section {
+    color: white;
+    background-color: darkblue;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 10px;
+}
+
+body > section>section {
+    grid-area: u;
+    color: darkblue;  
+}
