@@ -1,9 +1,67 @@
 body {
-  padding: 50px;
+  padding: 5px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: grid;
+  grid-template-columns: 40% 30% 30%;
+  grid-template-rows: 10% 80% 10%;
 }
 
 a {
   color: #00B7FF;
 }
-#mapid { height: 180px; }
+
+body > header{
+  padding: 2px;
+  
+  height: 40px;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-color: white;
+}
+body>header>section{
+  display: flex;
+  flex-direction: row-reverse;
+}
+body >header>section a {
+  flex-direction: row-reverse;
+  color: #222121;
+  text-align: center;
+  padding: 8px;
+  text-decoration: none;
+  font-size: 17px;
+}
+body >header>section a:hover {
+  background: #ddd;
+  color: black;
+}
+body >header> .logo{
+  float: left;
+  height: 30px;
+  width: 253.51px;
+}
+
+body > footer{
+  background-color: gray;
+  padding: 5px;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  color: white;
+}
+
+body>main{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+body>main>section img{
+  width: 280px;
+}
+body>main>section p{
+  text-align: justify;
+  color: #222121;
+}

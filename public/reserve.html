@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/reserve.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="crossorigin=""></script>
     <script src="javascripts/reserve.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <section id="mapid"></section>
-    
+    <header>
+        <img class="logo" src="/images/Logotipo-Softpadel-1.png">
+        <section>
+            <a href="">Amigos</a>
+            <a href="#contacts">Contacts</a>
+            <a href="/index.html">Home page</a>
+        </section>
+    </header>
+    <main>
+        <section id="mapid"></section>
+        <section class="form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br>
+
+                <label for="campo">Campos</label>
+                <select name="campo" id="campo">
+                   <option value="Padel Campo Grande">Padel Campo Grande</option>
+                   <option value="CIT Padel Amoreiras">CIT Padel Amoreiras</option>
+                   <option value="Rackets Pro - Saldanha">Rackets Pro - Saldanha</option>
+                   <option value="AEIST Campos de Padel">AEIST Campos de Padel</option>
+                </select>
+            
+            <label for="address">address:</label>
+            <input type="text" id="address" name="address"><br>
+        </section>
+        <section id="lista"></section>
+    </main>
+    <footer>
+        <p id="contacts">Contact us by email (<a href="mailto:softpadel@email.pt">softpadel@email.pt</a>) or thelephone (<a href="tel:+351123456789">351123456789</a>)</p>
+    </footer>
 </body>
 </html>

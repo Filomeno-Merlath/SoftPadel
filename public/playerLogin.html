@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="javascripts/playerLogin.js"></script>
     <title>Document</title>
 </head>
 <body>
-
+    <header>
+        <img class="logo" src="/images/Logotipo-Softpadel-1.png">
+    </header>
     <main>
-
-        <section>
+        <section class="login"> 
             <label for="username">Username:</label>
             <input type="text" id="username" name="email"><br>
             <label for="password">Password:</label>
             <input type="password" id="password"><br>
-
             <input type="button" value="login" onclick="login()">
+            <a href="/registo.html">
+            <input type="button" value="create account?">
+            </a>
             <p id="msg"></p>
         </section>
-
     </main>
-
 </body>
 </html>
