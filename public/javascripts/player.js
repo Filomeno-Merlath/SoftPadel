@@ -34,6 +34,7 @@ async function makeFriend(){
             contentType: "application/JSON"})
             console.log(JSON.stringify(result));
             window.alert("Follow sucess");
+            window.location = "playerFeed.html";
     } catch (error) {
         console.log(error);
     }
