@@ -16,6 +16,7 @@ window.onload = async function(){
           /*html += `<option value =${cit.city_id}>${cit.city_name}</option>`;}
           console.log(html);
         document.getElementById("cities").innerHTML = html;*/}
+
     } catch (error) {
         console.log(error);
     }
@@ -42,7 +43,8 @@ try {
         dataType: "json",
         contentType: "application/json"});
         console.log(JSON.stringify(result));
-        window.alert("Registration successful!")
+        window.alert("Registration successful!");
+        window.location = "playerLogin.html";
 } catch (error) {
     console.log(error);
 }
