@@ -73,6 +73,7 @@ body>main{
     border: 1px solid #e0e0e0;
     width: 28vw;
     height: 9vh;
+    padding: 0% 3%;
 }
 
 #username{
@@ -85,9 +86,19 @@ body>main{
 #username:hover{
     border-left: 5px solid rgba(250, 194, 83, 19);
     width: calc(28vw - 4px);
-
+}
+#username:focus{
+    outline: none;
+    border: 1px solid #e0e0e0;
+    border-left: 5px solid rgba(250, 194, 83, 19);
+    width: calc(28vw - 4px);
 }
 #password:hover{
+    border-left: 5px solid #e0e0e0;
+    width: calc(28vw - 4px);
+}
+#password:focus{
+    outline: none;
     border-left: 5px solid #e0e0e0;
     width: calc(28vw - 4px);
 }
