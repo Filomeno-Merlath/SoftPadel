@@ -16,7 +16,7 @@
     background-size: cover;
     background-position: bottom;
     width: 50vw;
-    height: 100vh;
+    height: auto;
     box-shadow: -2px 0px 8px #b3bf8a;
 }
 #formulario{
