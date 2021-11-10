@@ -146,10 +146,10 @@ body>main{
 }
 #registoText{
     background-color: white;
-    width: 30%;
-    height: 3.5%;
+    width: 14.588859416445624vh;
+    height: 1.9893899204244032vh;
     text-align: center;
-    padding: 3.5%;
+    padding: 1em;
     border-radius: 15% 15% 15% 15% / 50% 50% 50% 50%; 
     text-decoration: none;
     color: black;
@@ -160,8 +160,8 @@ body>main{
 
 #texth4{
     color: white;
-    font-size: 120%;
-    padding-right: 10%;
+    font-size: 1.1em;
+    padding-right: 2.5em;
 }
 .info{
     text-decoration: none;
@@ -181,6 +181,6 @@ body>main{
 
 #footerSect{
     display: block;
-    margin-left: 5%;
-    margin-top: 15%;
+    margin-left: 2.8em;
+    margin-top: 8.5em;
 }
