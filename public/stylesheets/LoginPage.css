@@ -7,7 +7,7 @@
 .section2{
     grid-area: form;
     width: 50vw;
-    height: 80vh;
+    height: 70vh;
 }
 
 .section3{
@@ -17,6 +17,12 @@
     background-position: bottom;
     width: 50vw;
     box-shadow: -2px 0px 8px #b3bf8a;
+}
+.footer{
+    grid-area: footer;
+    height: 10vh;
+    display: block;
+    margin-left: 6%;
 }
 #formulario{
     margin-top: 8%;
@@ -58,7 +64,8 @@ body>main{
     display: grid;
     grid-template-areas: 
     'logo foto'
-    'form foto';
+    'form foto'
+    'footer foto';
 }
 
 #logo{
@@ -178,10 +185,3 @@ body>main{
     align-items: center;
 }
 
-#footerSect{
-    display: block;
-    margin-left: 2.8em;
-    margin-top: 8.5em;
-    margin-bottom: auto;
-    margin-right: auto;
-}
