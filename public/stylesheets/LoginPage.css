@@ -149,6 +149,7 @@ body>main{
     display: flex;
     align-items: center;
     padding-top: 23%;
+    padding-left: 45%;
 }
 #registoText{
     background-color: white;
