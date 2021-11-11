@@ -22,6 +22,5 @@ marker = L.marker([38.72587, -9.16423]).addTo(mymap);
 marker.bindPopup("CIT Padel Amoreiras").openPopup();
 marker = L.marker([38.7574, -9.15351]).addTo(mymap);
 marker.bindPopup("Padel Campo Grande").openPopup();
-
-
 }
+
