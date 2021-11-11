@@ -16,6 +16,7 @@
     background-size: cover;
     background-position: bottom;
     width: 50vw;
+    height: 100vh;
     box-shadow: -2px 0px 8px #b3bf8a;
 }
 .footer{
@@ -148,7 +149,6 @@ body>main{
     display: flex;
     align-items: center;
     padding-top: 23%;
-    padding-left: 380px;
 }
 #registoText{
     background-color: white;
