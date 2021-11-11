@@ -16,7 +16,6 @@
     background-size: cover;
     background-position: bottom;
     width: 50vw;
-    height: auto;
     box-shadow: -2px 0px 8px #b3bf8a;
 }
 #formulario{
@@ -63,8 +62,8 @@ body>main{
 }
 
 #logo{
-    height: 30px;
-    width: 253.51px;
+    height: 3.9787798408488064vh;
+    width: 16.504557291666668vw;
     margin-top: 6%;
     margin-left: 5%;
 }
@@ -142,7 +141,7 @@ body>main{
     display: flex;
     align-items: center;
     padding-top: 23%;
-    padding-left: 50%;
+    padding-left: 380px;
 }
 #registoText{
     background-color: white;
@@ -183,4 +182,6 @@ body>main{
     display: block;
     margin-left: 2.8em;
     margin-top: 8.5em;
+    margin-bottom: auto;
+    margin-right: auto;
 }
