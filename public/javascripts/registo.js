@@ -34,7 +34,8 @@ try {
         bdate: document.getElementById("birthday").value,
         gender: document.querySelector('input[name="gender"]:checked').value,
         address: document.getElementById("address").value,
-        cityid: parseInt(document.getElementById("cities").value)}
+        cityid: parseInt(document.getElementById("cities").value),
+        /*location:`(${element.lat},${elemente.long})`*/}
     
         let result= await $.ajax({
         url:`/api/players`,
