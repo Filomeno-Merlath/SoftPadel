@@ -1,17 +1,17 @@
-var playerId = sessionStorage.getItem("id");;
-var userId = sessionStorage.getItem("playerId");;
+var user2Id = sessionStorage.getItem("id");;
+var user1Id = sessionStorage.getItem("userId");;
 window.onload = async function(){
 
     try {
 
-        let player = await $.ajax({
-            url: "/api/players/"+playerId,
+        let user = await $.ajax({
+            url: "/api/users/"+user2Id,
             method: "get",
             dataType: "json"
         });
 
-        document.getElementById("username").innerHTML= player.player_username;
-        document.getElementById("Name").innerHTML="Name:"+player.player_firstname+" "+player.player_lastname;
+        document.getElementById("username").innerHTML= user.user_username;
+        document.getElementById("Name").innerHTML="Name:"+user.user_firstname+" "+user.user_lastname;
     } catch (error) {
         console.log(error)
     }
@@ -22,19 +22,19 @@ async function makeFriend(){
         
         let data;
         data = {
-            userId,
-            playerId 
+            user1Id,
+            user2Id 
         }
 
         let result = await $.ajax({
-            url:`/api/playersFriends/follow`,
+            url:`/api/usersFriends/follow`,
             method:"post",
             data: JSON.stringify(data),
             dataType: "json",
             contentType: "application/JSON"})
             console.log(JSON.stringify(result));
             window.alert("Follow sucess");
-            window.location = "playerFeed.html";
+            window.location = "userFeed.html";
     } catch (error) {
         console.log(error);
     }

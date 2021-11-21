@@ -4,17 +4,17 @@ try {
         username: document.getElementById("username").value,
         password: document.getElementById("password").value
     }
-    let player = await $.ajax({
-        url: `/api/players/login`,
+    let user = await $.ajax({
+        url: `/api/users/login`,
         method: 'post',
         dataType: 'json',
         data: JSON.stringify(object),
         contentType: 'application/json'
-
     });
-    sessionStorage.setItem("playerId",player.player_id);
+    console.log(user);
+    sessionStorage.setItem("userId",user.user_id);
     window.alert("login sucesfully");
-    window.location = "playerFeed.html";
+    window.location = "userFeed.html";
 } catch (err) {
     document.getElementById("msg").innerText = err.responseJSON.msg;
 }

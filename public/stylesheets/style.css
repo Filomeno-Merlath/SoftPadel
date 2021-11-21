@@ -1,6 +1,6 @@
 body {
   padding: 5px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Audiowide", sans-serif;
   display: grid;
   grid-template-columns: 40% 30% 30%;
   grid-template-rows: 10% 80% 10%;

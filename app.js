@@ -6,9 +6,9 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var medalsRouter = require('./routes/medalsRoute');
 var citiesRouter = require('./routes/citiesRoute');
-var playersRouter = require('./routes/playersRoute');
-var pFriendsRouter = require('./routes/pFriendsRoute');
-var mapsRouter = require('./routes/mapsRoute');
+var usersRouter = require('./routes/usersRoute');
+var uFriendsRouter = require('./routes/uFriendsRoute');
+var fieldsRouter = require('./routes/fieldsRouter');
 var app = express();
 
 app.use(logger('dev'));
@@ -20,8 +20,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/api/medals', medalsRouter);
 app.use('/api/cities', citiesRouter);
-app.use('/api/players', playersRouter);
-app.use('/api/playersFriends', pFriendsRouter);
-app.use('/api/maps', mapsRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/usersFriends', uFriendsRouter);
+app.use('/api/fields', fieldsRouter);
 
 module.exports = app;

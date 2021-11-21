@@ -24,7 +24,6 @@
     height: 100vh;
     box-shadow: -2px 0px 8px #b3bf8a;
 }
-
 #formulario{
     margin-top: 18%;
     margin-left: 19%;
@@ -55,7 +54,7 @@
     height: 7.957559681697613vh;
 }
 body {
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px "Audiowide", sans-serif;
     margin: 0%;
     padding: 0%;
     background-color: #ffffff;
@@ -142,14 +141,15 @@ body>main{
     display: flex;
     align-items: center;
     padding-top: 23%;
-    padding-left: 45%;
+    padding-left: 40%;
 }
 #registoText{
     background-color: white;
-    width: 14.588859416445624vh;
+    width: 15.5vh;
     height: 1.9893899204244032vh;
     text-align: center;
     padding: 1em;
+    transition-duration: 0.4;
     border-radius: 15% 15% 15% 15% / 50% 50% 50% 50%; 
     text-decoration: none;
     color: black;
@@ -177,6 +177,7 @@ body>main{
     display: flex;
     align-items: center;
 }
+
 /*Sign Up*/
 .background2{
     grid-area: back;

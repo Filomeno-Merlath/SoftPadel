@@ -1,17 +1,17 @@
 var express = require('express');
 var router = express.Router();
-var fModel  = require("../models/pFriends.js");
+var fModel  = require("../models/usersFriends.js");
 
 router.get("/", async function(req, res, next){
-    console.log("Sending all players friends");
-    let result = await fModel.getAllPlayerFriends();
+    console.log("Sending all users friends");
+    let result = await fModel.getAllUsersFriends();
     res.status(result.status).send(result.result);
 });
 
 router.post("/follow", async function(req, res, next){
-    let userId = req.body.userId;
-    let playerId = req.body.playerId;
-    let result = await fModel.followPlayer(userId,playerId);
+    let user1Id = req.body.user1Id;
+    let user2Id = req.body.user2Id;
+    let result = await fModel.followUser(user1Id,user2Id);
     res.status(result.status).send(result.result);
 });
 
