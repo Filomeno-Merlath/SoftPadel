@@ -1,5 +1,5 @@
-var user2Id = sessionStorage.getItem("id");;
-var user1Id = sessionStorage.getItem("userId");;
+var user2Id = sessionStorage.getItem("id");
+var user1Id = sessionStorage.getItem("userId");
 window.onload = async function(){
 
     try {
@@ -34,7 +34,7 @@ async function makeFriend(){
             contentType: "application/JSON"})
             console.log(JSON.stringify(result));
             window.alert("Follow sucess");
-            window.location = "userFeed.html";
+            window.location = "userFriends.html";
     } catch (error) {
         console.log(error);
     }

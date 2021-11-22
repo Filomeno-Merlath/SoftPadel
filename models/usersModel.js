@@ -16,7 +16,7 @@ module.exports.loginUser = async function(username,password) {
             else return { status:401, result: {msg: "Wrong email or password"}};
     }catch(error){
         console.log(error);
-        return { status:500, result: {msg: "No user was found with this username"}};
+        return { status:500, result: {msg: "Wrong username or password"}};
     }
 }
 
@@ -49,7 +49,7 @@ module.exports.saveUser = async function(user) {
 module.exports.getAllUserFriends = async function(userId){
     console.log(userId);
     try {
-        let sql = `select user_username,user_firstname,user_lastname from users inner join users_friends on user2_fk_id=user_id where user1_fk_id=$1`;
+        let sql = `select user_id,user_username,user_firstname,user_lastname from users inner join users_friends on user2_fk_id=user_id where user1_fk_id=$1`;
         let result = await pool.query(sql,[userId]);
         let friends = result.rows;
         console.log(result.rows);
@@ -74,7 +74,7 @@ module.exports.getUserSearchBySuggest = async function(suggest) {
 
 module.exports.getUserById = async function(id){
     try {
-        let sql = "select user_username, user_firstname,user_lastname from users where user_id =$1";
+        let sql = "select user_id,user_username, user_firstname,user_lastname from users where user_id =$1";
         let result = await pool.query(sql,[id]);
         if(result.rows.length>0)
         return{status:200 , result:result.rows[0]};

@@ -4,19 +4,7 @@ create table cities(
 	primary key (city_id)
 );
 
-create table ugroups(
-    ugroup_id serial,
-	ugroup_name varchar(15) not null,
-	primary key (ugroup_id)
-);
-create table users_groups(
-    user_group_id serial,
-	user_fk_id int not null,
-	group_fk_id int not null,
-	primary key (user_group_id),
-	foreign key(user_fk_id) references users(user_id) ON DELETE NO ACTION ON UPDATE NO ACTION,
-	foreign key(group_fk_id ) references ugroups(ugroup_id) ON DELETE NO ACTION ON UPDATE NO ACTION
-);
+
 
 create table medals(
 	medal_id serial,
@@ -52,7 +40,7 @@ create table users(
 	user_location point,
 	city_fk_id int,
 	primary key (user_id),
-	foreign key (city_fk_id) references cities(city_id) ON DELETE NO ACTION ON UPDATE NO ACTION,
+	foreign key (city_fk_id) references cities(city_id) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
 create table users_friends(
@@ -87,4 +75,18 @@ create table reserve(
 create table trips(
 	trip_id serial,
 	primary key (trip_id)                                                                                         
+);
+
+create table ugroups(
+    ugroup_id serial,
+	ugroup_name varchar(15) not null,
+	primary key (ugroup_id)
+);
+create table users_groups(
+    user_group_id serial,
+	user_fk_id int not null,
+	group_fk_id int not null,
+	primary key (user_group_id),
+	foreign key(user_fk_id) references users(user_id) ON DELETE NO ACTION ON UPDATE NO ACTION,
+	foreign key(group_fk_id ) references ugroups(ugroup_id) ON DELETE NO ACTION ON UPDATE NO ACTION
 );

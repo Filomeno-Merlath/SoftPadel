@@ -13,7 +13,12 @@ display: flex;
 align-items: center;
 }
 body>header>#sh1{
-  margin: 30%;
+  margin: 21.5%;
+  display: flex;
+  align-items: center;
+}
+body>header>#sh2{
+  margin: 15%;
   display: flex;
   align-items: center;
 }
@@ -190,3 +195,17 @@ footer>#second>section>a>h5{
     margin: 0.5em 1.5em 0.2em 0;
     border: 1px solid #e0e0e0;
 }
+#friends>#users{
+  display: flex;
+  align-items: center
+}
+#friends>#users>button{
+ text-align: center;
+ margin-left: 70%;
+ padding: 1%;
+ border: 1px solid #e0e0e0;
+}
+#friends>#users>button:hover{
+  background-color: #9ca2af;
+ }
+

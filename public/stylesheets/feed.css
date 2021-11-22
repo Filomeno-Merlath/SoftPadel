@@ -13,7 +13,12 @@ body>header{
  align-items: center;
 }
 body>header>#sh1{
-    margin: 30%;
+    margin: 21.5%;
+    display: flex;
+    align-items: center;
+}
+body>header>#sh2{
+    margin: 15%;
     display: flex;
     align-items: center;
 }
@@ -139,4 +144,20 @@ footer>#second>section>a>h5{
     margin-right: 1%;
     color: #9ca2af;
 }
-
+#conteiner{
+    margin:auto;
+    width: 70vw;
+}
+.field{
+    display: flex;
+    align-items: center;
+    background-color:whitesmoke;
+    margin: 2% 0;
+    padding: 2%;
+    height: 10vh;
+    border: 1px solid #c3c3c3;
+}
+.field:hover{
+    cursor: pointer;
+    box-shadow:0px 7px 13px 0px rgba(136,136,136,0.52);
+}
