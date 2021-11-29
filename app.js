@@ -8,7 +8,8 @@ var medalsRouter = require('./routes/medalsRoute');
 var citiesRouter = require('./routes/citiesRoute');
 var usersRouter = require('./routes/usersRoute');
 var uFriendsRouter = require('./routes/uFriendsRoute');
-var fieldsRouter = require('./routes/fieldsRouter');
+var fieldsRouter = require('./routes/fieldsRoute');
+var reservesRouter = require('./routes/reservesRoute');
 var app = express();
 
 app.use(logger('dev'));
@@ -23,5 +24,6 @@ app.use('/api/cities', citiesRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/usersFriends', uFriendsRouter);
 app.use('/api/fields', fieldsRouter);
+app.use('/api/reserves', reservesRouter);
 
 module.exports = app;
