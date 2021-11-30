@@ -125,7 +125,7 @@ function createHourhtml() {
     let objectElement = document.createElement("option");
     objectElement.value =
       date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
-    objectElement.innerHTML = date.getMonth() + 1 + "-" + date.getDate();
+    objectElement.innerHTML = date.getDate() + "-" + (date.getMonth() + 1);
     document.getElementById("date").appendChild(objectElement);
   }
 }
@@ -163,6 +163,13 @@ function createHtmlReserve(rHour, fId) {
   let select = document.getElementById("date");
   let value = select.options[select.selectedIndex].value;
 
+  document.getElementById(`field${fId}`).innerHTML = `<p>${
+    value.slice(5, 10) + " ás " + rHour + ":00"
+  }</p> <button id="reFielB" onclick="reField(${rHour},${fId})">RESERVE</button>`;
+}
+async function reField(rHour, fId) {
+  let select = document.getElementById("date");
+  let value = select.options[select.selectedIndex].value;
   let reserve = {
     date: value,
     estate: 0,
@@ -170,13 +177,6 @@ function createHtmlReserve(rHour, fId) {
     fieldId: fId,
     hour: rHour + ":00:00",
   };
-  reField(reserve);
-  document.getElementById(`field${fId}`).innerHTML = `<p>${
-    value.slice(5, 10) + " ás " + rHour + ":00"
-  }</p> <button onclick="fieldre(${rHour},${fId})"></button>`;
-}
-async function reField(reserve) {
-  console.log(reserve);
   try {
     reserve = await $.ajax({
       url: `api/reserves/new`,
@@ -185,6 +185,7 @@ async function reField(reserve) {
       dataType: "json",
       contentType: "application/json",
     });
+    location.reload();
   } catch (error) {
     console.log(error);
   }

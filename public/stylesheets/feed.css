@@ -210,3 +210,18 @@ footer > #second > section > a > h5 {
   font-size: 15px;
   text-align: center;
 }
+select {
+  border: 1px solid #e0e0e0;
+}
+#reFielB {
+  text-align: center;
+  height: 4vh;
+  background-color: rgba(250, 194, 83, 19);
+  color: white;
+  outline: none;
+  border: none;
+  font: 14px "Audiowide", sans-serif;
+}
+#reFielB:hover {
+  background-color: rgba(243, 182, 60, 0.678);
+}
