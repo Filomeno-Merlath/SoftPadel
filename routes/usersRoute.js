@@ -36,4 +36,10 @@ router.get("/:id", async function (req, res, next) {
   let result = await uModel.getUserById(id);
   res.status(result.status).send(result.result);
 });
+router.get("/:id/reserves", async function (req, res, next) {
+  let id = req.params.id;
+  console.log(`sending user ${id} reserves.`);
+  let result = await uModel.getUserReserves(id);
+  res.status(result.status).send(result.result);
+});
 module.exports = router;
