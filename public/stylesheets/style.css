@@ -4,7 +4,6 @@ body {
   display: grid;
   grid-template-areas: "h" "m" "f";
 }
-
 a {
   color: #00b7ff;
 }
