@@ -11,6 +11,7 @@ module.exports.getAllfields = async function () {
     return { status: 500, result: error };
   }
 };
+
 module.exports.registerField = async function (newField) {
   try {
     let sql =
