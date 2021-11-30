@@ -8,4 +8,10 @@ router.get('/', async function(req, res, next){
     res.status(result.status).send(result.result);
 })
 
+router.post('/', async function(req, res, next){
+    console.log("Register new field");
+    let newField = req.body;
+    let result = await fModel.registerField(newField);
+    res.status(result.status).send(result.result);
+})
 module.exports = router;
