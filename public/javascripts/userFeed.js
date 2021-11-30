@@ -1,6 +1,6 @@
-window.onload = async function(){
-    loadUser();
-}
+window.onload = async function () {
+  loadUser();
+};
 /*
 async function searchByUsername() {
     try {
@@ -15,23 +15,23 @@ async function searchByUsername() {
         console.log(error);
     }  
 }*/
-async function logout(){
-    sessionStorage.removeItem("userId");
-    window.location="userLogin.html";
-    console.log(sessionStorage.getItem("userId"));
+async function logout() {
+  sessionStorage.removeItem("userId");
+  window.location = "userLogin.html";
+  console.log(sessionStorage.getItem("userId"));
 }
 
-async function loadUser(){
-    try {
-        let html="";
-        let id= sessionStorage.getItem("userId");
-        let data = await $.ajax({
-            url: `api/users/${id}`,
-            method:"get",
-            dataType:"json"
-        });
-        document.getElementById("user").innerHTML = `<h1>${data.user_username}-</h1>`;
-    } catch (error) {
-        
-    }
+async function loadUser() {
+  try {
+    let html = "";
+    let id = sessionStorage.getItem("userId");
+    let data = await $.ajax({
+      url: `api/users/${id}`,
+      method: "get",
+      dataType: "json",
+    });
+    document.getElementById(
+      "user"
+    ).innerHTML = `<h1>${data.user_username}-</h1>`;
+  } catch (error) {}
 }
