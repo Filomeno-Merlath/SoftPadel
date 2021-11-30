@@ -178,6 +178,25 @@ body > main {
 }
 
 /*Sign Up*/
+.time{
+    font-size: 1.1em;
+    color: #545454;
+    border: 1px solid #e0e0e0;
+    width: 13vw;
+    height: 5vh;
+    padding: 0% 3%;
+    margin-bottom: 1%;
+.time:hover{
+}
+    border-left: 5px solid rgba(250, 194, 83, 19);
+}
+    width: calc(13vw - 1px);
+    outline: none;
+.time:focus{
+    border: 1px solid #e0e0e0;
+    border-left: 5px solid rgba(250, 194, 83, 19);
+    width: calc(13vw - 1px);
+}
 .background2 {
   grid-area: back;
   background: url(/images/Bola3.jpg) no-repeat;

@@ -66,6 +66,10 @@ async function showPosition(position) {
     console.log(error);
   }
 }
+async function logout(){
+    sessionStorage.removeItem("userId");
+    window.location="userLogin.html";
+    console.log(sessionStorage.getItem("userId"));
 async function getFields() {
   let dateYMD =
     dat.getFullYear() + "-" + (dat.getMonth() + 1) + "-" + dat.getDate();
@@ -85,6 +89,11 @@ async function getFields() {
     console.log(error);
   }
 }
+function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+      x.innerHTML = "Geolocation is not supported by this browser.";
 function createHtmlFields(fields, reserves) {
   let list = "";
   let re = "";
@@ -115,6 +124,8 @@ function createHtmlFields(fields, reserves) {
     list += `</section></section><section id="field${field.field_id}"></section>`;
     l++;
   }
+async function showPosition(position) {
+    var mymap = L.map('mapid').setView([position.coords.latitude, position.coords.longitude], 13);
   res.innerHTML = list;
 }
 function createHourhtml() {
