@@ -2,11 +2,12 @@ body {
   font: 14px "Audiowide", sans-serif;
   margin: 0%;
   display: grid;
-  grid-template-areas: "h h" "m m" "f f";
+  grid-template-areas: "h" "m" "f";
 }
 body > header {
   grid-area: h;
   height: 7.957559681697613vh;
+
   background-color: #ffffff;
   display: flex;
   align-items: center;
@@ -17,7 +18,7 @@ body > header > #sh1 {
   align-items: center;
 }
 body > header > #sh2 {
-  margin: 15%;
+  margin: 0;
   display: flex;
   align-items: center;
 }
@@ -224,4 +225,14 @@ select {
 }
 #reFielB:hover {
   background-color: rgba(243, 182, 60, 0.678);
+}
+#reserves {
+  display: flex;
+  flex-wrap: wrap;
+}
+.reserve {
+  background-color: white;
+  margin: 1.5%;
+  padding: 1%;
+  width: 25vw;
 }

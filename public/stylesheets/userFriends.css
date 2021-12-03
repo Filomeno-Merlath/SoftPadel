@@ -17,7 +17,7 @@ body > header > #sh1 {
   align-items: center;
 }
 body > header > #sh2 {
-  margin: 15%;
+  margin: 0;
   display: flex;
   align-items: center;
 }

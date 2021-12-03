@@ -96,8 +96,9 @@ module.exports.getUserById = async function (id) {
 };
 module.exports.getUserReserves = async function (id) {
   try {
-    let sql =
-      "select * from users inner join reserve on  user_id=user_fk_id where user_id=$1";
+    let sql = `select * from users inner join reserve on  user_id=user_fk_id 
+inner join fields on field_fk_id= field_id inner join cities on fields.city_fk_id=city_id
+where user_id=$1`;
     let result = await pool.query(sql, [id]);
     for (let res of result.rows) delete res.user_password;
     if (result.rows.length > 0) return { status: 200, result: result.rows };
