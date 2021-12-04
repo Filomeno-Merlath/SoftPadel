@@ -33,24 +33,19 @@ function getLocation() {
   }
 }
 async function showPosition(position) {
-  mymap = L.map("mapid").setView(
-    [position.coords.latitude, position.coords.longitude],
-    13
+  mapboxgl.accessToken = 'pk.eyJ1IjoiZmlsb21lbm9tIiwiYSI6ImNrdjEyaGg1NDBjdXkydW92dHVib2RtbXUifQ.YgXHEY0WXf8ptKQJ1wkUyQ';
+  mymap = new mapboxgl.Map({
+    container: 'mapid',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [position.coords.longitude, position.coords.latitude],
+    zoom: 13
+  });
+  mymap.addControl(
+    new MapboxDirections({
+      accessToken: mapboxgl.accessToken
+    })
   );
-
-  L.tileLayer(
-    "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-    {
-      attribution:
-        'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-      maxZoom: 18,
-      id: "mapbox/streets-v11",
-      tileSize: 512,
-      zoomOffset: -1,
-      accessToken:
-        "pk.eyJ1IjoiZmlsb21lbm9tIiwiYSI6ImNrdjEyaGg1NDBjdXkydW92dHVib2RtbXUifQ.YgXHEY0WXf8ptKQJ1wkUyQ",
-    }
-  ).addTo(mymap);
+  mymap.addControl(new mapboxgl.NavigationControl());
   try {
     let fields = await $.ajax({
       url: `/api/fields`,
@@ -58,9 +53,10 @@ async function showPosition(position) {
       datatype: "json",
     });
     for (let field of fields) {
-      marker = L.marker([field.field_location.x, field.field_location.y])
-        .bindPopup(`${field.field_name}`)
-        .addTo(mymap);
+      marker = new mapboxgl.Marker().setLngLat([field.field_location.y, field.field_location.x])
+      .setPopup(
+        new mapboxgl.Popup({ offset: 25, }).setHTML(`<h3>${field.field_name}</h3>`)
+      ).addTo(mymap);
     }
   } catch (error) {
     console.log(error);
@@ -156,7 +152,13 @@ async function center(pos) {
   });
   let field = fields[pos];
   if (field.field_location) {
-    mymap.setView([field.field_location.x, field.field_location.y]);
+    mymap.flyTo({
+      center: [field.field_location.y, field.field_location.x]
+    });
+    new mapboxgl.Popup({ offset: 25 })
+    .setLngLat([field.field_location.y, field.field_location.x])
+    .setHTML(`<h3>${field.field_name}</h3>`)
+    .addTo(mymap);
   }
 }
 function createHtmlReserve(rHour, fId) {
