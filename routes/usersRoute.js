@@ -30,6 +30,11 @@ router.get("/suggest", async function (req, res, next) {
   console.log(result);
   res.status(result.status).send(result.result);
 });
+router.get("/groups", async function (req, res, next) {
+  console.log("sending all users groups");
+  let result = await uModel.getUserGroup();
+  res.status(result.status).send(result.result);
+});
 router.get("/:id", async function (req, res, next) {
   let id = req.params.id;
   console.log("sending user by id:" + id);
@@ -42,4 +47,5 @@ router.get("/:id/reserves", async function (req, res, next) {
   let result = await uModel.getUserReserves(id);
   res.status(result.status).send(result.result);
 });
+
 module.exports = router;
