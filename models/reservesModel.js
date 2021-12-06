@@ -11,6 +11,7 @@ module.exports.getAllReserves = async function () {
     return { status: 500, result: error };
   }
 };
+
 module.exports.getReservesFilterByDate = async function (date) {
   try {
     let sql = "select*from reserve where reserve_date=$1";
@@ -22,6 +23,7 @@ module.exports.getReservesFilterByDate = async function (date) {
     return { status: 500, result: err };
   }
 };
+
 module.exports.newReserve = async function (reserve) {
   try {
     let sql =

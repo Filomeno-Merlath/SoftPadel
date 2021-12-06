@@ -33,19 +33,30 @@ function getLocation() {
   }
 }
 async function showPosition(position) {
-  mapboxgl.accessToken = 'pk.eyJ1IjoiZmlsb21lbm9tIiwiYSI6ImNrdjEyaGg1NDBjdXkydW92dHVib2RtbXUifQ.YgXHEY0WXf8ptKQJ1wkUyQ';
+  mapboxgl.accessToken =
+    "pk.eyJ1IjoiZmlsb21lbm9tIiwiYSI6ImNrdjEyaGg1NDBjdXkydW92dHVib2RtbXUifQ.YgXHEY0WXf8ptKQJ1wkUyQ";
   mymap = new mapboxgl.Map({
-    container: 'mapid',
-    style: 'mapbox://styles/mapbox/streets-v11',
+    container: "mapid",
+    style: "mapbox://styles/mapbox/streets-v11",
     center: [position.coords.longitude, position.coords.latitude],
-    zoom: 13
+    zoom: 13,
   });
   mymap.addControl(
-    new MapboxDirections({
-      accessToken: mapboxgl.accessToken
+    new mapboxgl.NavigationControl({
+      accessToken: mapboxgl.accessToken,
     })
   );
-  mymap.addControl(new mapboxgl.NavigationControl());
+  mymap.addControl(
+    new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true,
+      },
+      // When active the map will receive updates to the device's location as it changes.
+      trackUserLocation: true,
+      // Draw an arrow next to the location dot to indicate which direction the device is heading.
+      showUserHeading: true,
+    })
+  );
   try {
     let fields = await $.ajax({
       url: `/api/fields`,
@@ -53,10 +64,14 @@ async function showPosition(position) {
       datatype: "json",
     });
     for (let field of fields) {
-      marker = new mapboxgl.Marker().setLngLat([field.field_location.y, field.field_location.x])
-      .setPopup(
-        new mapboxgl.Popup({ offset: 25, }).setHTML(`<h3>${field.field_name}</h3>`)
-      ).addTo(mymap);
+      marker = new mapboxgl.Marker()
+        .setLngLat([field.field_location.y, field.field_location.x])
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }).setHTML(
+            `<h3>${field.field_name}</h3>`
+          )
+        )
+        .addTo(mymap);
     }
   } catch (error) {
     console.log(error);
@@ -153,12 +168,12 @@ async function center(pos) {
   let field = fields[pos];
   if (field.field_location) {
     mymap.flyTo({
-      center: [field.field_location.y, field.field_location.x]
+      center: [field.field_location.y, field.field_location.x],
     });
     new mapboxgl.Popup({ offset: 25 })
-    .setLngLat([field.field_location.y, field.field_location.x])
-    .setHTML(`<h3>${field.field_name}</h3>`)
-    .addTo(mymap);
+      .setLngLat([field.field_location.y, field.field_location.x])
+      .setHTML(`<h3>${field.field_name}</h3>`)
+      .addTo(mymap);
   }
 }
 function createHtmlReserve(rHour, fId) {

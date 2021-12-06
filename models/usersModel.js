@@ -94,6 +94,7 @@ module.exports.getUserById = async function (id) {
     return { status: 500, result: error };
   }
 };
+
 module.exports.getUserReserves = async function (id) {
   try {
     let sql = `select * from users inner join reserve on  user_id=user_fk_id 
@@ -103,6 +104,18 @@ where user_id=$1`;
     for (let res of result.rows) delete res.user_password;
     if (result.rows.length > 0) return { status: 200, result: result.rows };
     else return { status: 404, result: { msg: "User not found" } };
+  } catch (error) {
+    console.log(error);
+    return { status: 500, result: error };
+  }
+};
+
+module.exports.getUserGroup = async function (id) {
+  try {
+    let sql = `select group_fk_id, ugroup_name from users inner join users_groups on  user_id=user_fk_id 
+inner join ugroups on group_fk_id= ugroup_id where user_id=$1`;
+    let result = await pool.query(sql, [id]);
+    return { status: 200, result: result.rows[0] };
   } catch (error) {
     console.log(error);
     return { status: 500, result: error };
