@@ -149,7 +149,3 @@ async function makeFriend() {
     console.log(error);
   }
 }
-
-async function ShowGroupUsers() {
-  CreateGroupHtml(Group);
-}
