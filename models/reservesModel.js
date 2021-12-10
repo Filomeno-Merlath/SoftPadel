@@ -41,3 +41,16 @@ module.exports.newReserve = async function (reserve) {
     return { status: 500, result: error };
   }
 };
+
+module.exports.getReserveById = async function (id) {
+  try {
+    let sql =
+      "select * from reserve where reserve_id =$1";
+    let result = await pool.query(sql, [id]);
+    if (result.rows.length > 0) return { status: 200, result: result.rows[0] };
+    else return { status: 404, result: { msg: "Reserve not found" } };
+  } catch (error) {
+    console.log(error);
+    return { status: 500, result: error };
+  }
+};
