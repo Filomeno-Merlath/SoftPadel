@@ -38,7 +38,10 @@ create table users(
 	user_gender char(1) not null,
 	user_address varchar(50) not null,
 	user_location point,
-	city_fk_id int,
+	city_fk_id int not null,
+	user_wins int not null,
+	user_dif_field int not null,
+	user_n_games int not null, 
 	primary key (user_id),
 	foreign key (city_fk_id) references cities(city_id) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
@@ -62,12 +65,13 @@ create table users_medals(
 	foreign key (medal_fk_id) references medals(medal_id) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
-create table reserve(
+create table reserves(
 	reserve_id serial,
 	reserve_date date not null,
 	reserve_estate int not null,
 	user_fk_id int not null,
 	field_fk_id int not null,
+	reserve_hour time not null,
 	primary Key (reserve_id),
 	foreign key (user_fk_id) references users(user_id) ON DELETE NO ACTION ON UPDATE NO ACTION,
 	foreign key (field_fk_id) references fields(field_id) ON DELETE NO ACTION ON UPDATE NO ACTION

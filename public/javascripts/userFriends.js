@@ -54,7 +54,7 @@ async function createUsersHTML(data) {
                 </section>`;
       }
     }
-    if (data.length == 0 || v == userId) {
+    if (data.length == 0 || (data.length == 1 && v == userId)) {
       res.innerHTML = `<p>No users found with this username.</p>`;
       console.log(1);
     } else {
@@ -127,22 +127,13 @@ async function loadUser() {
 }
 async function makeFriend() {
   try {
-    let data;
     let user1Id = sessionStorage.getItem("userId");
     let user2Id = document.getElementById("makef").value;
-    data = {
-      user1Id,
-      user2Id,
-    };
-    console.log(data);
     let result = await $.ajax({
-      url: `/api/usersFriends/follow`,
+      url: `/api/users/${user1Id}/follow/${user2Id}`,
       method: "post",
-      data: JSON.stringify(data),
       dataType: "json",
-      contentType: "application/JSON",
     });
-    console.log(JSON.stringify(result));
     window.alert("Follow sucess");
     window.location = "userFriends.html";
   } catch (error) {
