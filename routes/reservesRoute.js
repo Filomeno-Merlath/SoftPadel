@@ -18,4 +18,10 @@ router.post("/new", async function (req, res, next) {
   let result = await rModel.newReserve(newReserve);
   res.status(result.status).send(result.result);
 });
+router.get("/:id", async function (req, res, next) {
+  let id = req.params.id;
+  console.log("sending reserve by id:" + id);
+  let result = await rModel.getReserveById(id);
+  res.status(result.status).send(result.result);
+});
 module.exports = router;

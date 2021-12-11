@@ -13,4 +13,12 @@ router.post("/", async function (req, res, next) {
   let result = await fModel.registerField(newField);
   res.status(result.status).send(result.result);
 });
+
+router.get("/:id", async function (req, res, next) {
+  let id = req.params.id;
+  console.log("sending field by id:" + id);
+  let result = await fModel.getFieldById(id);
+  res.status(result.status).send(result.result);
+});
+
 module.exports = router;

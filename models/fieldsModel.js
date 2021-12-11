@@ -11,7 +11,19 @@ module.exports.getAllfields = async function () {
     return { status: 500, result: error };
   }
 };
-
+module.exports.getFieldById = async function (id) {
+  try {
+    let sql =
+      "select * from fields where field_id =$1";
+    let result = await pool.query(sql, [id]);
+    console.log(result);
+    if (result.rows.length > 0) return { status: 200, result: result.rows[0] };
+    else return { status: 404, result: { msg: "Field not found" } };
+  } catch (error) {
+    console.log(error);
+    return { status: 500, result: error };
+  }
+};
 module.exports.registerField = async function (newField) {
   try {
     let sql =

@@ -18,11 +18,10 @@ async function loadReserves() {
 }
 function createReservesHtml(data) {
   let html = ``;
-
   for (let dat of data) {
     let some = parseInt(dat.reserve_hour.slice(0, 2)) + 1;
 
-    html += `<section class=reserve>
+    html += `<section class=reserve onclick="toReserve(${dat.reserve_id})">
             <p>${dat.field_name}</p>
             
             <p>Time:${dat.reserve_hour.slice(0, 5)}-${some}:00</p>
@@ -30,4 +29,8 @@ function createReservesHtml(data) {
             </section>`;
   }
   document.getElementById("reserves").innerHTML = html;
+}
+function toReserve(rId){
+  sessionStorage.setItem("rId", rId);
+  window.location = "reserve.html";
 }
