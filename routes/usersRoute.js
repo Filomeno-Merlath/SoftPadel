@@ -72,5 +72,6 @@ router.post("/:id/createGroup", async function (req, res, next) {
   let group = req.body;
   let userId = req.params.id;
   let result = await uModel.createUserGroup(userId, group);
+  res.status(result.status).send(result.result);
 });
 module.exports = router;
