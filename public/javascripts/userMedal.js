@@ -39,8 +39,20 @@ async function getUserMedal(medal){
             method: `get`,
             dataType: `json`
         })
+        createMedalHtml(data);
         console.log(data);
     } catch (error) {
         
     }
 }
+function createMedalHtml(users) {
+    console.log(users.user_id == userId);
+  
+    for (let user of users) {
+      if (users.length < 0 || user.user_id == userId) {
+        document.getElementById(
+          "conteiner"
+        ).innerHTML = `<p>Looks like you're alone in the group.</p> <button onclick="createAddPlayer()">Add players</button>`;
+      }
+    }
+  }
