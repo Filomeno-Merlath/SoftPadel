@@ -1,5 +1,6 @@
 window.onload = async function () {
   loadUser();
+  loadCalendar();
 };
 /*
 async function searchByUsername() {
@@ -15,6 +16,15 @@ async function searchByUsername() {
         console.log(error);
     }  
 }*/
+async function loadCalendar() {
+  document.addEventListener("DOMContentLoaded", function () {
+    var calendarEl = document.getElementById("calendar");
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: "dayGridMonth",
+    });
+    calendar.render();
+  });
+}
 async function logout() {
   sessionStorage.removeItem("userId");
   window.location = "userLogin.html";

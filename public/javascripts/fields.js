@@ -57,25 +57,7 @@ async function showPosition(position) {
       showUserHeading: true,
     })
   );
-  try {
-    let fields = await $.ajax({
-      url: `/api/fields`,
-      method: "get",
-      datatype: "json",
-    });
-    for (let field of fields) {
-      marker = new mapboxgl.Marker()
-        .setLngLat([field.field_location.y, field.field_location.x])
-        .setPopup(
-          new mapboxgl.Popup({ offset: 25 }).setHTML(
-            `<h3>${field.field_name}</h3>`
-          )
-        )
-        .addTo(mymap);
-    }
-  } catch (error) {
-    console.log(error);
-  }
+  c;
 }
 async function getFields() {
   let dateYMD =
